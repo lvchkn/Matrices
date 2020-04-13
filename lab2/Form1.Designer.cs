@@ -57,6 +57,8 @@
             this.lblTimeText2 = new System.Windows.Forms.Label();
             this.btnAddMatrix = new System.Windows.Forms.Button();
             this.btnMultMatrix = new System.Windows.Forms.Button();
+            this.btnAddCSV = new System.Windows.Forms.Button();
+            this.brnMultCSV = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gridA)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTableA)).BeginInit();
@@ -213,7 +215,7 @@
             // 
             this.gridAddRes.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.gridAddRes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridAddRes.Location = new System.Drawing.Point(56, 308);
+            this.gridAddRes.Location = new System.Drawing.Point(56, 290);
             this.gridAddRes.Name = "gridAddRes";
             this.gridAddRes.Size = new System.Drawing.Size(320, 118);
             this.gridAddRes.TabIndex = 21;
@@ -223,7 +225,7 @@
             // 
             this.gridMultRes.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.gridMultRes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridMultRes.Location = new System.Drawing.Point(437, 308);
+            this.gridMultRes.Location = new System.Drawing.Point(437, 290);
             this.gridMultRes.Name = "gridMultRes";
             this.gridMultRes.Size = new System.Drawing.Size(320, 118);
             this.gridMultRes.TabIndex = 22;
@@ -232,7 +234,7 @@
             // lblAddMatrix
             // 
             this.lblAddMatrix.AutoSize = true;
-            this.lblAddMatrix.Location = new System.Drawing.Point(103, 283);
+            this.lblAddMatrix.Location = new System.Drawing.Point(103, 265);
             this.lblAddMatrix.Name = "lblAddMatrix";
             this.lblAddMatrix.Size = new System.Drawing.Size(222, 13);
             this.lblAddMatrix.TabIndex = 23;
@@ -241,7 +243,7 @@
             // lblMultMatrix
             // 
             this.lblMultMatrix.AutoSize = true;
-            this.lblMultMatrix.Location = new System.Drawing.Point(483, 283);
+            this.lblMultMatrix.Location = new System.Drawing.Point(483, 265);
             this.lblMultMatrix.Name = "lblMultMatrix";
             this.lblMultMatrix.Size = new System.Drawing.Size(227, 13);
             this.lblMultMatrix.TabIndex = 24;
@@ -250,7 +252,7 @@
             // lblTimeText
             // 
             this.lblTimeText.AutoSize = true;
-            this.lblTimeText.Location = new System.Drawing.Point(53, 429);
+            this.lblTimeText.Location = new System.Drawing.Point(53, 411);
             this.lblTimeText.Name = "lblTimeText";
             this.lblTimeText.Size = new System.Drawing.Size(42, 13);
             this.lblTimeText.TabIndex = 25;
@@ -260,7 +262,7 @@
             // lblTimeAdd
             // 
             this.lblTimeAdd.AutoSize = true;
-            this.lblTimeAdd.Location = new System.Drawing.Point(90, 429);
+            this.lblTimeAdd.Location = new System.Drawing.Point(90, 411);
             this.lblTimeAdd.Name = "lblTimeAdd";
             this.lblTimeAdd.Size = new System.Drawing.Size(0, 13);
             this.lblTimeAdd.TabIndex = 26;
@@ -268,7 +270,7 @@
             // lblTimeMult
             // 
             this.lblTimeMult.AutoSize = true;
-            this.lblTimeMult.Location = new System.Drawing.Point(483, 429);
+            this.lblTimeMult.Location = new System.Drawing.Point(483, 411);
             this.lblTimeMult.Name = "lblTimeMult";
             this.lblTimeMult.Size = new System.Drawing.Size(0, 13);
             this.lblTimeMult.TabIndex = 27;
@@ -276,7 +278,7 @@
             // lblTimeText2
             // 
             this.lblTimeText2.AutoSize = true;
-            this.lblTimeText2.Location = new System.Drawing.Point(435, 429);
+            this.lblTimeText2.Location = new System.Drawing.Point(435, 411);
             this.lblTimeText2.Name = "lblTimeText2";
             this.lblTimeText2.Size = new System.Drawing.Size(42, 13);
             this.lblTimeText2.TabIndex = 28;
@@ -303,13 +305,35 @@
             this.btnMultMatrix.UseVisualStyleBackColor = true;
             this.btnMultMatrix.Click += new System.EventHandler(this.btnMultMatrix_Click);
             // 
+            // btnAddCSV
+            // 
+            this.btnAddCSV.Location = new System.Drawing.Point(56, 427);
+            this.btnAddCSV.Name = "btnAddCSV";
+            this.btnAddCSV.Size = new System.Drawing.Size(183, 28);
+            this.btnAddCSV.TabIndex = 31;
+            this.btnAddCSV.Text = "Сохранить матрицу сложения";
+            this.btnAddCSV.UseVisualStyleBackColor = true;
+            this.btnAddCSV.Click += new System.EventHandler(this.btnAddCSV_Click);
+            // 
+            // brnMultCSV
+            // 
+            this.brnMultCSV.Location = new System.Drawing.Point(437, 427);
+            this.brnMultCSV.Name = "brnMultCSV";
+            this.brnMultCSV.Size = new System.Drawing.Size(183, 28);
+            this.brnMultCSV.TabIndex = 32;
+            this.brnMultCSV.Text = "Сохранить матрицу умножения";
+            this.brnMultCSV.UseVisualStyleBackColor = true;
+            this.brnMultCSV.Click += new System.EventHandler(this.brnMultCSV_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 475);
+            this.Controls.Add(this.brnMultCSV);
+            this.Controls.Add(this.btnAddCSV);
             this.Controls.Add(this.btnMultMatrix);
             this.Controls.Add(this.btnAddMatrix);
             this.Controls.Add(this.lblTimeText2);
@@ -379,6 +403,8 @@
         private System.Windows.Forms.Label lblTimeText2;
         private System.Windows.Forms.Button btnAddMatrix;
         private System.Windows.Forms.Button btnMultMatrix;
+        private System.Windows.Forms.Button btnAddCSV;
+        private System.Windows.Forms.Button brnMultCSV;
     }
 }
 

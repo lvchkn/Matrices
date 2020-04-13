@@ -13,7 +13,7 @@ namespace lab2
         {
             InitializeComponent();
         }
-       
+
         public void InitMatrix()
         {
             gridA.RowCount = Convert.ToInt32(tbMatrixARowsCount.Text);
@@ -30,46 +30,34 @@ namespace lab2
             gridMultRes.RowCount = gridA.RowCount;
             gridMultRes.ColumnCount = gridB.ColumnCount;
 
-            
+
         }
         public void FillMatrix()
         {
-            //string pathToCsv = @"D:\Programs\vs17programs\ResMatrix.csv";
             Matrix<int> m1 = new Matrix<int>(gridA.RowCount, gridA.ColumnCount);
             Matrix<int> m2 = new Matrix<int>(gridB.RowCount, gridB.ColumnCount);
 
             Random rnd = new Random();
-            
+
             for (int i = 0; i < gridA.RowCount; i++)
             {
                 for (int j = 0; j < gridA.ColumnCount; j++)
                 {
                     m1.arr[i, j] = rnd.Next(1, 50);
                     gridA.Rows[i].Cells[j].Value = m1.arr[i, j];
-                    
+
                 }
             }
-           
+
             for (int i = 0; i < gridB.RowCount; i++)
             {
                 for (int j = 0; j < gridB.ColumnCount; j++)
                 {
                     m2.arr[i, j] = rnd.Next(1, 50);
                     gridB.Rows[i].Cells[j].Value = m2.arr[i, j];
-                    
+
                 }
             }
-
-            //for (int i = 0; i < gridMultRes.RowCount; i++) // csv
-            //{
-            //    for (int j = 0; j < gridMultRes.ColumnCount; j++)
-            //    {
-            //        using (StreamWriter sw = new StreamWriter(pathToCsv, false, Encoding.Default))
-            //        {
-            //            sw.WriteLine(m4.arr[i, j]);
-            //        }
-            //    }
-            //}
         }
 
         public void AddMatrix()
@@ -84,7 +72,7 @@ namespace lab2
                     m1.arr[i, j] = Convert.ToInt32(gridA.Rows[i].Cells[j].Value);
                 }
             }
-            
+
             for (int i = 0; i < gridB.RowCount; i++)
             {
                 for (int j = 0; j < gridB.ColumnCount; j++)
@@ -103,7 +91,7 @@ namespace lab2
             for (int i = 0; i < gridAddRes.RowCount; i++)
             {
                 for (int j = 0; j < gridAddRes.ColumnCount; j++)
-                {                   
+                {
                     gridAddRes.Rows[i].Cells[j].Value = m3.arr[i, j];
                 }
             }
@@ -160,6 +148,42 @@ namespace lab2
             ts2.Hours, ts2.Minutes, ts2.Seconds,
             ts2.Milliseconds / 10);
         }
+
+        public void AddCSV()
+        {
+            string pathToCsv = @"D:\Programs\vs17programs\ResMatrixAdd.csv";
+           
+            using (StreamWriter sw = new StreamWriter(pathToCsv, false, Encoding.Default))
+            {
+                for (int i = 0; i < gridAddRes.RowCount; i++)
+                {
+                    for (int j = 0; j < gridAddRes.ColumnCount; j++)
+                    {
+                        sw.Write(gridAddRes.Rows[i].Cells[j].Value);
+                        sw.Write(";");                       
+                    }
+                    sw.WriteLine();
+                }
+            }
+        }
+
+        public void MultCSV()
+        {
+            string pathToCsv = @"D:\Programs\vs17programs\ResMatrixMult.csv";
+            
+            using (StreamWriter sw = new StreamWriter(pathToCsv, false, Encoding.Default))
+            {
+                for (int i = 0; i < gridMultRes.RowCount; i++)
+                {
+                    for (int j = 0; j < gridMultRes.ColumnCount; j++)
+                    {
+                        sw.Write(Convert.ToString(gridMultRes.Rows[i].Cells[j].Value));
+                        sw.Write(";");                      
+                    }
+                    sw.WriteLine();
+                }
+            }
+        }
         private void btnShowMatrice_Click(object sender, EventArgs e)
         {
             InitMatrix();
@@ -175,5 +199,15 @@ namespace lab2
         {
             AddMatrix();
         }
-    }
+
+        private void btnAddCSV_Click(object sender, EventArgs e)
+        {
+            AddCSV();
+        }
+
+        private void brnMultCSV_Click(object sender, EventArgs e)
+        {
+            MultCSV();
+        }
+    }   
 }
